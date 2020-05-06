@@ -18,9 +18,12 @@ var commentRoutes=require("./routes/comments"),
 	authRoutes=require("./routes/auth");
 
 var mongodb = require('mongodb');
+
+console.log(process.env.PORT);
 //seedDB();
 //mongoose.connect("mongodb://127.0.0.1:27017/Yelpcamp",{useNewUrlParser:true ,useUnifiedTopology: true } );
-mongoose.connect("mongodb+srv://Vatshal:DIVIJ0807@yelpcamp-antej.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true ,useUnifiedTopology: true} );
+//mongoose.connect("mongodb+srv://Vatshal:DIVIJ0807@yelpcamp-antej.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true ,useUnifiedTopology: true} );
+mongoose.connect(process.env.DATABASEURL,{useNewUrlParser:true ,useUnifiedTopology: true });
 app.set("view engine","ejs");
 app.use(bp.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
