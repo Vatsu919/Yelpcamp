@@ -17,8 +17,10 @@ var commentRoutes=require("./routes/comments"),
 	campgroundRoutes=require("./routes/campgrounds"),
 	authRoutes=require("./routes/auth");
 
+var mongodb = require('mongodb');
 //seedDB();
-mongoose.connect("mongodb://127.0.0.1:27017/Yelpcamp",{useNewUrlParser:true ,useUnifiedTopology: true } );
+//mongoose.connect("mongodb://127.0.0.1:27017/Yelpcamp",{useNewUrlParser:true ,useUnifiedTopology: true } );
+mongoose.connect("mongodb+srv://Vatshal:DIVIJ0807@yelpcamp-antej.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true ,useUnifiedTopology: true} );
 app.set("view engine","ejs");
 app.use(bp.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
@@ -75,6 +77,6 @@ app.use(authRoutes);
 
 
 
-app.listen(process.env.PORT,function(){
+app.listen(3000,function(){
 	console.log("Yelpcamp is running");
 });
