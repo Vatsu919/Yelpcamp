@@ -32,7 +32,7 @@ app.use(flash());
 
 
 app.use(require("express-session")({
-	secret:"fuck the world",
+	secret:"the world",
 	resave:false,
 	saveUninitialized:false
 }));
